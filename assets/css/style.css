@@ -30,6 +30,9 @@ a {
 
 /* Header */
 #site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: white;
   color: black;
   padding: 15px 20px;
@@ -38,6 +41,13 @@ a {
   align-items: center;
   gap: 15px;
   border-bottom: 1px solid #eeeeee;
+  transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
+}
+
+#site-header.scrolled {
+  background-color: black;
+  color: white;
+  border-bottom: none;
 }
 
 #site-header a.logo {
@@ -49,6 +59,10 @@ a {
   color: #1F7A4D;
   cursor: pointer;
   transition: opacity 300ms;
+}
+
+#site-header.scrolled a.logo {
+  color: white;
 }
 
 #site-header a.logo:hover {
@@ -73,9 +87,18 @@ a {
   transition: background-color 300ms, color 300ms;
 }
 
+#site-header.scrolled .nav-menu ul li a {
+  color: white;
+}
+
 .nav-menu ul li a:hover {
   background-color: #eaf5ef;
   color: #1F7A4D;
+}
+
+#site-header.scrolled .nav-menu ul li a:hover {
+  background-color: #333333;
+  color: white;
 }
 
 /* Hero */
