@@ -161,8 +161,8 @@ a {
   background-color: white;
   color: #1F7A4D;
   border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 14px 24px;
+  font-size: 0.95rem; 
   font-weight: bold;
   cursor: pointer;
   border-radius: 50px;
@@ -372,11 +372,12 @@ a {
   background-color: #222222;
   color: white;
   font-size: 1.1rem;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .footer-socials .social-btn:hover {
   background-color: #248F59;
+  transform: translateY(-5px);
 }
 
 .footer-copyright {
