@@ -13,3 +13,9 @@ window.addEventListener('scroll', function() {
         header.classList.remove('scrolled');
     }
 });
+
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+});

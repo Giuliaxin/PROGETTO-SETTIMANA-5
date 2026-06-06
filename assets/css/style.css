@@ -434,3 +434,143 @@ a {
     padding: 30px 60px;
   }
 }
+
+/* Carosello Testimonial */
+.testimonials-section {
+  padding: 60px 20px;
+  background-color: #eaf5ef; 
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  color: #1F7A4D;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.testimonials-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollCarosello 20s linear infinite;
+}
+
+.testimonial-card {
+  background-color: white; 
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  padding: 25px;
+  width: 290px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  margin: 0 0 15px 0;
+  font-size: 0.95rem;
+  color: #555555;
+}
+
+.testimonial-card span {
+  font-weight: bold;
+  color: #1F7A4D;
+  display: block;
+}
+
+@keyframes scrollCarosello {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Accessibilità e Tema Scuro */
+.theme-btn {
+  background: none;
+  border: 1px solid #1F7A4D;
+  color: #1F7A4D;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 300ms, color 300ms;
+}
+
+.theme-btn:hover {
+  background-color: #eaf5ef;
+}
+
+#site-header.scrolled .theme-btn {
+  border-color: white;
+  color: white;
+}
+
+#site-header.scrolled .theme-btn:hover {
+  background-color: #333333;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-track {
+    animation: none;
+  }
+  .card, .team-card, .hero h1, .hero p, .hero .btn-hero {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body.dark {
+  background-color: #121212;
+  color: #b0b0b0;
+}
+
+body.dark .card,
+body.dark .work-item,
+body.dark .team-card,
+body.dark .testimonial-card {
+  background-color: #1e1e1e;
+  border-color: #333333;
+}
+
+body.dark .card {
+  color: #b0b0b0;
+}
+
+body.dark #site-footer {
+  background-color: #0a0a0a;
+}
+
+body.dark h2, body.dark h3, body.dark .card h3 {
+  color: #ffffff;
+}
+
+body.dark .testimonials-section h2 {
+  color: #ffffff;
+}
+
+body.dark #site-header:not(.scrolled) {
+  background-color: #1a1a1a;
+  border-bottom-color: #333333;
+  color: white;
+}
+
+body.dark #site-header:not(.scrolled) .nav-menu ul li a {
+  color: white;
+}
+
+body.dark .services-section, 
+body.dark .team-section, 
+body.dark .testimonials-section {
+  background-color: #1a1a1a;
+}
