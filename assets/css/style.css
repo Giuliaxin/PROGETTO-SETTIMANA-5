@@ -117,8 +117,7 @@ a {
 .hero h1,
 .hero p,
 .hero .btn-hero {
-    opacity: 0;
-    animation: fadeSlideUp 1s ease-out forwards;
+    animation: fadeSlideUp 1s ease-out backwards;
 }
 
 .hero h1 {
@@ -135,18 +134,18 @@ a {
 
 .hero {
   background: linear-gradient(135deg, #1F7A4D, #124a2e);
-  min-height: 70vh;
+  min-height: 70vhvh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px; 
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -162,17 +161,19 @@ a {
   background-color: white;
   color: #1F7A4D;
   border: none;
-  padding: 12px 30px;
+  padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s, transform 0.2s;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-hero:hover {
   background-color: #EBFAF2;
   transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Services */
@@ -202,8 +203,7 @@ a {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border: 1px solid #eeeeee;
   transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  animation: fadeSlideUp 0.8s ease-out forwards;
+  animation: fadeSlideUp 0.8s ease-out backwards;
 }
 
 .card:nth-child(1) { animation-delay: 0.2s; }
@@ -211,8 +211,8 @@ a {
 .card:nth-child(3) { animation-delay: 0.6s; }
 
 .card:hover {
-  transform: translate(0, -5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
@@ -391,6 +391,21 @@ a {
     justify-content: space-between;
     padding: 15px 40px;
   }
+
+  .hero {
+    min-height: 60vh; 
+  }
+
+  .hero p {
+    max-width: 540px;
+  }
+
+  #site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 40px;
+  }
+
   .cards-container {
     flex-direction: row;
     flex-wrap: wrap;
@@ -573,4 +588,155 @@ body.dark .services-section,
 body.dark .team-section, 
 body.dark .testimonials-section {
   background-color: #1a1a1a;
+}
+
+/* Modale Richiedi Preventivo */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(40px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #555555;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-modal:hover {
+  color: #1F7A4D;
+}
+
+.modal-content h2 {
+  color: #1F7A4D;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.modal-content p {
+  font-size: 0.95rem;
+  color: #666666;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1F7A4D;
+}
+
+.btn-submit {
+  background-color: #1F7A4D;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #124a2e;
+}
+
+body.dark .modal-content {
+  background-color: #1e1e1e;
+  color: #b0b0b0;
+}
+
+body.dark .modal-content h2 {
+  color: #ffffff;
+}
+
+body.dark .modal-content p,
+body.dark .close-modal {
+  color: #a0a0a0;
+}
+
+body.dark .close-modal:hover {
+  color: #ffffff;
+}
+
+body.dark .form-group label {
+  color: #ffffff;
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea {
+  background-color: #2a2a2a;
+  border-color: #444444;
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal-content {
+    transition: none !important;
+    transform: none !important;
+  }
 }
